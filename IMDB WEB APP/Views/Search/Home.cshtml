@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<head>
+   
+  <script src="../../Content/jquery-1.11.3.js" type="text/javascript"></script>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../Content/bootstrap.min.js" type="text/javascript"></script>
+    <link href="../../Content/bootstrap-table.css" rel="stylesheet" type="text/css" />
+    <script src="../../Content/bootstrap-table.js" type="text/javascript"></script>
+</head>
+
+
+<script type="text/javascript">
+
+
+    $('document').ready(function () {
+        $('#search').click(function () {
+
+            var id = $('#actorname').val();
+            if (id == "" || id == "null") {
+               // $('#showdata').css('display', 'none')
+                alert("Please enter Actor/Actress name ")
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SearchMovie", "Search")',
+                data: 'name=' + id,
+                success: function (data) {
+
+                    //    $('#showdata').css('display', 'block')
+                    $('#actorname').val()
+                    $('#showdata').html(data);
+                }
+            });
+
+
+
+        });
+
+       
+    });
+
+</script>
+
+
+
+
+
+
+<html>
+<body>
+<div>
+<h1 style="text-align:center">Search Actor/actress movie</h1>
+<div class="">
+<input  type="text "  class="form-control small" id="actorname" name="actorname"/>
+<input type="button" class="btn btn-primary center-block"id="search" name="search" value="search"/>
+   
+</div>
+
+
+</div>
+
+<div>
+   <br />
+
+</div>
+
+   <div id="showdata">
+   
+   
+   </div>
+</body>
+
+
+</html>

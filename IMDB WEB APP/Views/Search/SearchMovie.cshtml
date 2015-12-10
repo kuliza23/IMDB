@@ -1,0 +1,77 @@
+﻿@model  IEnumerable<IMDB_WEB_APP.IMDB_SERVICE_REFERNCE.ActorMovieDetails>
+
+@{
+    ViewBag.Title = "SEARCH MOVIE";
+}
+@{
+    Layout = null;
+}
+<head>
+    
+</head>
+
+<html>
+<body>
+<h1 style="text-align:center" >SEARCH DETAILS</h1>
+    <table  class="table"
+     id="table1"  data-toggle="table"   data-sort-order="desc"  
+      data-pagination="true" data-height="400"   data-show-toggle="true" data-show-columns="true" data-search="true"  >
+
+   <thead>
+    <tr>
+        <th  class="cell-inside-width240" data-field="Details" data-align="center" data-sortable="true" data-visible="true" >Go to details</th> 
+       
+        <th  class="cell-inside-width240" data-field="ActorName" data-align="center" data-sortable="true" data-visible="true" > Actor Name</th>
+        <th  class="cell-inside-width240" data-field="MovieName" data-align="center" data-sortable="false"  data-visible="true"> Movie Name</th>
+         <th  class="cell-inside-width240" data-field="Rating" data-align="center" data-sortable="false"  data-visible="true">Rating</th>
+          <th  class="cell-inside-width240"  data-field="MovieRuntime" data-align="center" data-sortable="true"  data-visible="true">Movie Runtime </th>
+           <th  class="cell-inside-width240" data-field="ReleaseTime" data-align="center" data-sortable="true">Release Time</th>
+            
+       
+    </tr>
+    </thead>
+
+
+     <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+            <td>
+                @Html.ActionLink("Details", "SearchDetails", new { name = item.MovieName})
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Runtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Release)
+            </td>
+           
+            
+            
+        </tr>
+        } 
+        </tbody>
+
+
+
+ 
+</table>
+
+
+</body>
+
+</html>
+
+
+
+
+

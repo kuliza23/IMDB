@@ -1,0 +1,10 @@
+1.First you have to open imdb service in visual studio in debug mode
+2.Second you have to open a imdb web app in visual studio
+3.Then you have to copy the address from  IMDB SERVICE (LIKE for-ex http://localhost:64357/WalletUI_OperationService.svc) in your open 
+imdb web app in service refernce (right click) configurable click.
+4.Then copy or replace that addtress to configure part)
+and now build and run that dasboard
+
+
+5.for this you have to first run service then run imdb web app.
+

@@ -1,0 +1,68 @@
+﻿@model  IEnumerable<IMDB_WEB_APP.IMDB_SERVICE_REFERNCE.MovieDetails>
+
+@{
+    ViewBag.Title = "Home";
+}
+<head>
+
+<script src="../../Content/jquery-1.11.3.js" type="text/javascript"></script>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../Content/bootstrap.min.js" type="text/javascript"></script>
+    <link href="../../Content/bootstrap-table.css" rel="stylesheet" type="text/css" />
+    <script src="../../Content/bootstrap-table.js" type="text/javascript"></script>
+</head>
+
+<html>
+<body>
+<h1 style="text-align:center" >MOVIE DETAILS</h1>
+    <table  class="table"
+     id="table1"  data-toggle="table"   data-sort-order="desc"  
+      data-pagination="true" data-height="400"   data-show-toggle="true" data-show-columns="true" data-search="true"  >
+
+   <thead>
+    <tr>
+       
+       
+       
+        <th  class="cell-inside-width240" data-field="MovieName" data-align="center" data-sortable="false"  data-visible="true"> Movie Name</th>
+         <th  class="cell-inside-width240" data-field="Rating" data-align="center" data-sortable="false"  data-visible="true">Rating</th>
+        
+          <th  class="cell-inside-width240" data-field="Comments" data-align="center" data-sortable="true">Top Reviews</th>  
+       
+    </tr>
+    </thead>
+
+
+     <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieName) &nbsp  @Html.DisplayFor(modelItem => item.Release)  &nbsp   @Html.DisplayFor(modelItem => item.Runtime)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+
+        </tr>
+        } 
+        </tbody>
+
+
+
+ 
+</table>
+
+
+</body>
+
+</html>
+
+
+
+
+
